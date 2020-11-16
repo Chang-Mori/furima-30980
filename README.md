@@ -4,16 +4,16 @@
 
 ## users テーブル
 
-| Column 　　　   | Type   | Options                   |
-| -------------- | ------ | ------------------------- |
-| nickname       | string | null: false               |
-| email          | string | null: false, unique: true |
-| password       | string | null: false               |
-| first_name     | string | null: false               |
-| family_name    | string | null: false               |
-| birthday_year  | string | null: false               |
-| birthday_month | string | null: false               |
-| birthday_day   | string | null: false               |
+| Column             | Type   | Options                   |
+| ------------------ | ------ | ------------------------- |
+| nickname           | string | null: false               |
+| email              | string | null: false, unique: true |
+| encrypted_password | string | null: false               |
+| first_name         | string | null: false               |
+| family_name        | string | null: false               |
+| first_name_kana    | string | null: false               |
+| family_name_kana   | string | null: false               |
+| birthday           | date   | null: false               |
 
 ### Association
 
@@ -27,12 +27,12 @@
 | item_image       | string     | null: false |
 | item_name        | string     | null: false |
 | explanation      | text       | null: false |
-| category         | string     | null: false |
-| status           | string     | null: false |
-| shipping_charges | string     | null: false |
-| shipment_source  | string     | null: false |
-| days_to_ship     | string     | null: false |
-| price            | string     | null: false |
+| category         | integer    | null: false |
+| status           | integer    | null: false |
+| shipping_charges | integer    | null: false |
+| shipment_source  | integer    | null: false |
+| days_to_ship     | integer    | null: false |
+| price            | integer    | null: false |
 | order_log        | references | null: false |
 
 ### Association
@@ -42,27 +42,26 @@
 
 ## order_logs テーブル
 
-| Column       | Type       | Options                        |
-| ------------ | ---------- | ------------------------------ |
-| user         | references | null: false, foreign_key: true |
-| order_date   | string     | null: false                    |
-| order_item   | string     | null: false                    |
+| Column | Type       | Options                        |
+| ------ | ---------- | ------------------------------ |
+| user   | references | null: false, foreign_key: true |
+| item   | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :item
 - belongs_to :user
-- belongs_to :order_address
+- has_one :order_address
 
 ## order_addresses テーブル
 
 | Column         | Type       | Options                        |
 | -------------- | ---------- | ------------------------------ |
-| address_number | string     | null: false                    |
-| city           | string     | null: false                    |
+| postal_code    | string     | null: false                    |
+| prefecture     | integer    | null: false                    |
 | municipality   | string     | null: false                    |
-| address        | string     | null: false                    |
-| building_name  | string     | null: false                    |
+| house_number   | string     | null: false                    |
+| building_name  | string     |                                |
 | phone_number   | string     | null: false                    |
 
 
