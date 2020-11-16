@@ -22,17 +22,17 @@
 
 ## items テーブル
 
-| Column              | Type       | Options     |
-| ------------------- | ---------- | ----------- |
-| item_name           | string     | null: false |
-| explanation         | text       | null: false |
-| category_id         | integer    | null: false |
-| status_id           | integer    | null: false |
-| shipping_charges_id | integer    | null: false |
-| shipment_source_id  | integer    | null: false |
-| days_to_ship_id     | integer    | null: false |
-| price               | integer    | null: false |
-| order_log           | references | null: false |
+| Column              | Type       | Options                        |
+| ------------------- | ---------- | ------------------------------ |
+| item_name           | string     | null: false                    |
+| explanation         | text       | null: false                    |
+| category_id         | integer    | null: false                    |
+| status_id           | integer    | null: false                    |
+| shipping_charges_id | integer    | null: false                    |
+| shipment_source_id  | integer    | null: false                    |
+| days_to_ship_id     | integer    | null: false                    |
+| price               | integer    | null: false                    |
+| user                | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -62,6 +62,7 @@
 | house_number  | string     | null: false                    |
 | building_name | string     |                                |
 | phone_number  | string     | null: false                    |
+| order_log     | references | null: false, foreign_key: true |
 
 
 ### Association
