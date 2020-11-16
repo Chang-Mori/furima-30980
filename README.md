@@ -37,7 +37,7 @@
 ### Association
 
 - belongs_to :user
-- has_one :order
+- has_one :order_log
 
 ## order_logs テーブル
 
