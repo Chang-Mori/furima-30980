@@ -22,18 +22,17 @@
 
 ## items テーブル
 
-| Column           | Type       | Options     |
-| ---------------- | ---------- | ----------- |
-| item_image       | string     | null: false |
-| item_name        | string     | null: false |
-| explanation      | text       | null: false |
-| category         | integer    | null: false |
-| status           | integer    | null: false |
-| shipping_charges | integer    | null: false |
-| shipment_source  | integer    | null: false |
-| days_to_ship     | integer    | null: false |
-| price            | integer    | null: false |
-| order_log        | references | null: false |
+| Column              | Type       | Options     |
+| ------------------- | ---------- | ----------- |
+| item_name           | string     | null: false |
+| explanation         | text       | null: false |
+| category_id         | integer    | null: false |
+| status_id           | integer    | null: false |
+| shipping_charges_id | integer    | null: false |
+| shipment_source_id  | integer    | null: false |
+| days_to_ship_id     | integer    | null: false |
+| price               | integer    | null: false |
+| order_log           | references | null: false |
 
 ### Association
 
@@ -55,14 +54,14 @@
 
 ## order_addresses テーブル
 
-| Column         | Type       | Options                        |
-| -------------- | ---------- | ------------------------------ |
-| postal_code    | string     | null: false                    |
-| prefecture     | integer    | null: false                    |
-| municipality   | string     | null: false                    |
-| house_number   | string     | null: false                    |
-| building_name  | string     |                                |
-| phone_number   | string     | null: false                    |
+| Column        | Type       | Options                        |
+| ------------- | ---------- | ------------------------------ |
+| postal_code   | string     | null: false                    |
+| prefecture_id | integer    | null: false                    |
+| municipality  | string     | null: false                    |
+| house_number  | string     | null: false                    |
+| building_name | string     |                                |
+| phone_number  | string     | null: false                    |
 
 
 ### Association
