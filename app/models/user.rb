@@ -11,6 +11,6 @@ class User < ApplicationRecord
     validates :first_name_kana, presence: true
     validates :family_name_kana, presence: true
   end
-  validates :nickname, presence: true
+  validates :nickname, presence: true, length: { maximum: 40 }
   validates :birthday, presence: true
 end
