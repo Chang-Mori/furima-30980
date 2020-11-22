@@ -154,9 +154,9 @@
         </div>
         <% end %>
       </li>
-      <% end %>
+    <% end %>
 
-      <% unless item = "" %>
+      <% if @items.length == 0 %>
       <%# 商品がない場合のダミー %>
       <%# 商品がある場合は表示されないようにしましょう %>
       <li class='list'>
