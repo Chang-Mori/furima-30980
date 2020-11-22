@@ -7,7 +7,7 @@ RSpec.describe Item, type: :model do
 
   describe '出品商品の保存' do
     context "出品商品が保存できる場合" do
-      it "image,name,explanation,category_id,status_id,shipping_charges_id,shipment_source_id,days_to_ship_id,priceがあれば保存できる" do
+      it "image,name,explanation,category_id,status_id,shipping_charge_id,shipment_source_id,days_to_ship_id,priceがあれば保存できる" do
         expect(@item).to be_valid
       end
     end
@@ -55,15 +55,15 @@ RSpec.describe Item, type: :model do
       end
 
       it "配送料の負担が空では保存できないこと" do
-        @item.shipping_charges_id = nil
+        @item.shipping_charge_id = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("Shipping charges is not a number")
+        expect(@item.errors.full_messages).to include("Shipping charge is not a number")
       end
 
       it "配送料の負担のカラムが「---」(id:1)では保存できないこと" do
-        @item.shipping_charges_id = "1"
+        @item.shipping_charge_id = "1"
         @item.valid?
-        expect(@item.errors.full_messages).to include("Shipping charges must be other than 1")
+        expect(@item.errors.full_messages).to include("Shipping charge must be other than 1")
       end
 
       it "発送元の地域が空では保存できないこと" do
