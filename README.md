@@ -18,7 +18,7 @@
 ### Association
 
 - has_many :items
-- has_many :order_logs
+- has_many :order
 
 ## items テーブル
 
@@ -37,9 +37,9 @@
 ### Association
 
 - belongs_to :user
-- has_one :order_log
+- has_one :order
 
-## order_logs テーブル
+## order テーブル
 
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
@@ -50,21 +50,21 @@
 
 - belongs_to :item
 - belongs_to :user
-- has_one :order_address
+- has_one :address
 
-## order_addresses テーブル
+## addresses テーブル
 
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
 | postal_code   | string     | null: false                    |
 | prefecture_id | integer    | null: false                    |
-| municipality  | string     | null: false                    |
+| city          | string     | null: false                    |
 | house_number  | string     | null: false                    |
 | building_name | string     |                                |
 | phone_number  | string     | null: false                    |
-| order_log     | references | null: false, foreign_key: true |
+| order         | references | null: false, foreign_key: true |
 
 
 ### Association
 
-- belongs_to :order_log
+- belongs_to :order
