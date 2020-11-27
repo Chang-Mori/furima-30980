@@ -5,6 +5,9 @@ class Item < ApplicationRecord
   belongs_to :user
   has_one :order
 
+  validates :image, :name, :explanation,  presence: true
+  validates :price, numericality:{ only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999}
+  validates :category_id, :status_id, :shipping_charge_id, :shipment_source_id, :days_to_ship_id, numericality: { other_than: 1 } 
 
 
   extend ActiveHash::Associations::ActiveRecordExtensions

@@ -3,12 +3,12 @@ class ItemOrder
   attr_accessor :user_id, :item_id, :postal_code, :prefecture_id, :city, :house_number, :building_name, :phone_number
 
   with_options presence: true do
-    validates :postal_code, :city, :house_number, :phone_number, :image, :name, :explanation
+    validates :postal_code, :city, :house_number, :phone_number
   end
 
-  validates :price, numericality:{ only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999}
-  validates :category_id, :status_id, :shipping_charge_id, :shipment_source_id, :days_to_ship_id, :prefecture_id, numericality: { other_than: 1 } 
   validates :postal_code, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)"}
+  validates :prefecture_id, numericality: { other_than: 1 }
+  validates :phone_number, format: {with: /\A\d{11}\z/}
 
   def save
     order = Order.create(user_id: user_id, item_id: item_id)
