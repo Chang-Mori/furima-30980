@@ -10,6 +10,10 @@ RSpec.describe ItemOrder, type: :model do
       it 'すべての値が正しく入力されていれば保存できること' do
         expect(@item_order).to be_valid
       end
+      it '建物名は空でも保存できること' do
+        @item_order.building_name = nil
+        expect(@item_order).to be_valid
+      end
     end
 
     context '購入登録が上手くいかない時' do
@@ -42,10 +46,6 @@ RSpec.describe ItemOrder, type: :model do
         @item_order.house_number = nil
         @item_order.valid?
         expect(@item_order.errors.full_messages).to include("House number can't be blank")
-      end
-      it '建物名は空でも保存できること' do
-        @item_order.building_name = nil
-        expect(@item_order).to be_valid
       end
       it '電話番号が空だと保存できないこと' do
         @item_order.phone_number = nil
