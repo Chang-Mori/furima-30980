@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def index
-    @items = Item.includes(:user).order("created_at DESC")
+    @items = Item.includes(:user ,:order).order("created_at DESC")
   end
 
   def new
@@ -23,7 +23,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    unless user_signed_in? && current_user.id == @item.user_id
+    unless current_user.id == @item.user_id && @item.order.nil?
       redirect_to action: :index
     end
   end
